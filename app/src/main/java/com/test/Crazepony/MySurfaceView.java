@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.PixelFormat;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -73,6 +74,8 @@ public class MySurfaceView extends SurfaceView  implements Callback, Runnable {
         super(context, attrs);
         Log.i(TAG, "MySurfaceView");
         sfh = this.getHolder();
+        setZOrderOnTop(true);//设置背景为透明
+        sfh.setFormat(PixelFormat.TRANSPARENT);//
         sfh.addCallback(this);
         paint = new Paint();
         paint.setAntiAlias(true);
